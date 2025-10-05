@@ -1,5 +1,0 @@
-{
-  "name": "ProjectBuddy AI Project Suggester",
-  "description": "An interactive landing page for an engineering project service. It features a project showcase, pricing information, FAQs, and an AI-powered project suggester that uses the Gemini API to provide tailored project ideas for students based on their branch, year, and interests.",
-  "requestFramePermissions": []
-}
