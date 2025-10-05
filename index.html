@@ -1,9 +1,8 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="google-site-verification" content="8iHs3eM4qhJm9lZuCuS3YU0DwrQMmo8xqzNT13gyv8A" />
     <title>ProjectBuddy - Your Partner for Engineering Success</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
@@ -23,20 +22,24 @@
             background: radial-gradient(ellipse at top, #111827 0%, #020617 100%);
         }
         .glow-effect {
-            box-shadow: 0 0 20px rgba(167, 139, 250, 0.6), 0 0 35px rgba(124, 58, 237, 0.4);
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.4), 0 0 25px rgba(124, 58, 237, 0.3);
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .glow-effect:hover {
+            box-shadow: 0 0 25px rgba(167, 139, 250, 0.7), 0 0 40px rgba(124, 58, 237, 0.5);
         }
         .hero-title-shadow {
             text-shadow: 2px 2px 12px rgba(0,0,0,0.7);
         }
         .animated-glow {
-            animation: pulse-glow 2s infinite alternate;
+            animation: pulse-glow 2.5s infinite alternate;
         }
         @keyframes pulse-glow {
-            from { box-shadow: 0 0 15px rgba(167, 139, 250, 0.5), 0 0 25px rgba(124, 58, 237, 0.3); }
-            to { box-shadow: 0 0 25px rgba(167, 139, 250, 0.8), 0 0 40px rgba(124, 58, 237, 0.5); }
+            from { box-shadow: 0 0 20px rgba(167, 139, 250, 0.5), 0 0 30px rgba(124, 58, 237, 0.3); }
+            to { box-shadow: 0 0 35px rgba(167, 139, 250, 0.8), 0 0 55px rgba(124, 58, 237, 0.5); }
         }
         .gradient-text {
-            background: linear-gradient(90deg, #a78bfa, #f472b6); /* violet-400 to pink-400 */
+            background: linear-gradient(90deg, #a78bfa, #f472b6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -47,7 +50,7 @@
             font-weight: 600;
         }
         .pricing-tab.active {
-            background-color: #7c3aed; /* purple-600 */
+            background-color: #7c3aed;
             color: #ffffff;
         }
         .faq-question { transition: background-color 0.3s ease; }
@@ -73,7 +76,6 @@
             transition: opacity 0.5s ease-in-out;
         }
 
-        /* Scroll Animation */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(20px);
@@ -96,636 +98,41 @@
                 flex: 0 0 33.3333%;
             }
         }
-    </style>
+        /* Custom scrollbar for webkit browsers */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
+        /* Visual Enhancement Classes */
+        .bg-cover-center {
+            background-size: cover;
+            background-position: center;
+        }
+        .bg-hero { background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop'); }
+        .bg-pricing { background-image: url('https://images.unsplash.com/photo-1617862254269-af7326ab3675?q=80&w=1932&auto=format&fit=crop'); }
+        .bg-about { background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop'); }
+        .bg-footer { background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=1973&auto=format&fit=crop'); }
+        .bg-circuit { background-image: url('https://images.unsplash.com/photo-1550751827-4138d04d405b?q=80&w=2070&auto=format&fit=crop'); }
+        .bg-code { background-image: url('https://images.unsplash.com/photo-1517694712202-1428bc383565?q=80&w=2070&auto=format&fit=crop'); }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-slate-950 text-gray-300">
-
-    <!-- Header -->
-    <header class="bg-slate-950/70 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-800">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" data-page="home" class="nav-link flex items-center gap-2">
-                <svg class="h-8 w-8 text-purple-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.481.398.668 1.03.26 1.431l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.075.124a6.57 6.57 0 01-.22.127c-.332.183-.582.495-.645.87l-.213 1.281c-.09.542-.56.94-1.11-.94h-2.593c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 01-.26-1.431l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.075-.124.072-.044.146-.087.22-.127.332-.183.582.495.645-.87l.213-1.281z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <span class="text-2xl font-bold text-white">ProjectBuddy</span>
-            </a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#" data-page="home" class="nav-link text-gray-400 hover:text-white transition-colors duration-300">Home</a>
-                <a href="#" data-page="gallery" class="nav-link text-gray-400 hover:text-white transition-colors duration-300">Gallery</a>
-                <a href="#" data-page="project-ideas" class="nav-link text-gray-400 hover:text-white transition-colors duration-300">Project Ideas</a>
-                <a href="#" data-page="pricing" class="nav-link text-gray-400 hover:text-white transition-colors duration-300">Pricing</a>
-                <a href="#" data-page="faq" class="nav-link text-gray-400 hover:text-white transition-colors duration-300">FAQ</a>
-                <a href="#" data-page="contact" class="nav-link bg-purple-600 text-white font-semibold px-5 py-2 rounded-lg hover:bg-purple-700 transition-colors duration-300">
-                    Contact Us
-                </a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-white">
-                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
-            </button>
-        </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-slate-900">
-            <a href="#" data-page="home" class="nav-link block text-gray-300 hover:text-white px-6 py-3 transition-colors duration-300">Home</a>
-            <a href="#" data-page="gallery" class="nav-link block text-gray-300 hover:text-white px-6 py-3 transition-colors duration-300">Gallery</a>
-            <a href="#" data-page="project-ideas" class="nav-link block text-gray-300 hover:text-white px-6 py-3 transition-colors duration-300">Project Ideas</a>
-            <a href="#" data-page="pricing" class="nav-link block text-gray-300 hover:text-white px-6 py-3 transition-colors duration-300">Pricing</a>
-            <a href="#" data-page="faq" class="nav-link block text-gray-300 hover:text-white px-6 py-3 transition-colors duration-300">FAQ</a>
-            <a href="#" data-page="contact" class="nav-link block text-gray-300 hover:text-white px-6 py-3 transition-colors duration-300">Contact Us</a>
-        </div>
-    </header>
-
-    <main>
-        <!-- Home Page Section -->
-        <div id="home" class="page-section">
-            <!-- Hero Section -->
-            <section class="gradient-bg-section text-white pt-20 pb-24">
-                <div class="container mx-auto px-6 text-center animate-on-scroll">
-                    <h1 class="text-4xl md:text-6xl font-black leading-tight mb-4 hero-title-shadow">Ace Your Engineering Projects with Ease</h1>
-                    <p class="text-lg md:text-xl max-w-3xl mx-auto mb-8 text-violet-200">Rent or buy innovative projects, get custom solutions, and secure top marks with our complete support kit.</p>
-                    <div class="flex justify-center items-center flex-wrap gap-4">
-                        <a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="bg-white text-violet-700 font-bold px-8 py-3 rounded-lg text-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-300">
-                           Get Started
-                        </a>
-                         <a href="#" data-page="project-ideas" class="nav-link border-2 border-white text-white font-bold px-8 py-3 rounded-lg text-lg hover:bg-white hover:text-violet-700 transform hover:scale-105 transition-all duration-300">
-                            View Ideas
-                        </a>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Tagline Banner -->
-            <section class="py-4 bg-purple-900/50 border-y border-purple-700">
-                 <div class="container mx-auto px-6 text-center animate-on-scroll">
-                     <p class="text-lg font-semibold text-white">ProjectBuddy — <span class="gradient-text">Where Innovation Meets Affordability</span> 🚀</p>
-                 </div>
-            </section>
-
-             <!-- Why Choose Us Section -->
-            <section class="py-20 bg-slate-900/70">
-                <div class="container mx-auto px-6">
-                     <div class="text-center mb-16 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">Why <span class="gradient-text">Choose Us?</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">We're more than just a project provider. We're your dedicated partner for academic success.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                        <div class="text-center p-6 animate-on-scroll" style="transition-delay: 100ms;"><div class="mx-auto mb-4 bg-purple-600/20 text-purple-400 rounded-lg h-16 w-16 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" /></svg></div><h3 class="text-xl font-bold text-white mb-2">Complete Support Kit</h3><p class="text-gray-400">From the device and code to the report and PPT, we provide everything you need in one package.</p></div>
-                        <div class="text-center p-6 animate-on-scroll" style="transition-delay: 200ms;"><div class="mx-auto mb-4 bg-purple-600/20 text-purple-400 rounded-lg h-16 w-16 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v.01" /></svg></div><h3 class="text-xl font-bold text-white mb-2">Student-Friendly Pricing</h3><p class="text-gray-400">Our sale and rental options are designed to be affordable for every student's budget.</p></div>
-                        <div class="text-center p-6 animate-on-scroll" style="transition-delay: 300ms;"><div class="mx-auto mb-4 bg-purple-600/20 text-purple-400 rounded-lg h-16 w-16 flex items-center justify-center"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg></div><h3 class="text-xl font-bold text-white mb-2">Expert After-Sales Support</h3><p class="text-gray-400">Our job isn't done until you've successfully presented your project. We're here to help.</p></div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Featured Projects Carousel Section -->
-            <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">Featured <span class="gradient-text">Projects</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">Check out some of our most popular and innovative projects.</p>
-                    </div>
-                    <div class="relative animate-on-scroll">
-                        <div id="featured-projects-container" class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth" style="scrollbar-width: none; -ms-overflow-style: none;">
-                            <div class="featured-project-slide snap-start flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4"><div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group h-full flex flex-col"><img src="https://placehold.co/600x400/1e293b/a78bfa?text=Obstacle+Robot" alt="Obstacle Avoiding Robot" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold text-white">Obstacle Avoiding Robot</h3><p class="text-gray-400 mt-2 text-sm flex-grow">An autonomous robot that navigates its environment using ultrasonic sensors.</p><button data-page="gallery" class="nav-link mt-4 text-sm font-semibold text-purple-400 hover:text-white">View Details &rarr;</button></div></div></div>
-                            <div class="featured-project-slide snap-start flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4"><div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group h-full flex flex-col"><img src="https://placehold.co/600x400/1e293b/a78bfa?text=IoT+Weather+Station" alt="IoT Weather Station" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold text-white">IoT Weather Station</h3><p class="text-gray-400 mt-2 text-sm flex-grow">Monitors real-time weather data and uploads it to the cloud for remote access.</p><button data-page="gallery" class="nav-link mt-4 text-sm font-semibold text-purple-400 hover:text-white">View Details &rarr;</button></div></div></div>
-                            <div class="featured-project-slide snap-start flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4"><div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group h-full flex flex-col"><img src="https://placehold.co/600x400/1e293b/f472b6?text=E-commerce+Site" alt="E-commerce Website" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold text-white">E-commerce Website</h3><p class="text-gray-400 mt-2 text-sm flex-grow">A fully functional online store with product management and payment integration.</p><button data-page="gallery" class="nav-link mt-4 text-sm font-semibold text-purple-400 hover:text-white">View Details &rarr;</button></div></div></div>
-                             <div class="featured-project-slide snap-start flex-shrink-0 w-full md:w-1/2 lg:w-1/3 p-4"><div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group h-full flex flex-col"><img src="https://placehold.co/600x400/1e293b/a78bfa?text=Smart+Home" alt="Smart Home Automation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6 flex flex-col flex-grow"><h3 class="text-xl font-bold text-white">Smart Home Automation</h3><p class="text-gray-400 mt-2 text-sm flex-grow">Control lights, fans, and other appliances using a custom smartphone app.</p><button data-page="gallery" class="nav-link mt-4 text-sm font-semibold text-purple-400 hover:text-white">View Details &rarr;</button></div></div></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- How It Works Section -->
-            <section class="py-20 bg-slate-900/70">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">How It <span class="gradient-text">Works</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">A simple, four-step process to get your project done.</p>
-                    </div>
-                    <div class="relative max-w-4xl mx-auto">
-                        <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-700 -translate-y-1/2"></div>
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center relative">
-                            <div class="animate-on-scroll" style="transition-delay: 100ms;"><div class="mx-auto mb-4 bg-purple-600/20 text-purple-400 border-2 border-purple-500 rounded-full h-20 w-20 flex items-center justify-center relative"><span class="text-2xl font-bold">1</span></div><h3 class="text-lg font-bold text-white mb-2">Choose Your Project</h3><p class="text-sm text-gray-400">Browse our gallery or bring your own custom idea.</p></div>
-                            <div class="animate-on-scroll" style="transition-delay: 200ms;"><div class="mx-auto mb-4 bg-purple-600/20 text-purple-400 border-2 border-purple-500 rounded-full h-20 w-20 flex items-center justify-center relative"><span class="text-2xl font-bold">2</span></div><h3 class="text-lg font-bold text-white mb-2">Confirm Your Order</h3><p class="text-sm text-gray-400">Fill out the form and finalize the details with our team.</p></div>
-                            <div class="animate-on-scroll" style="transition-delay: 300ms;"><div class="mx-auto mb-4 bg-purple-600/20 text-purple-400 border-2 border-purple-500 rounded-full h-20 w-20 flex items-center justify-center relative"><span class="text-2xl font-bold">3</span></div><h3 class="text-lg font-bold text-white mb-2">Get Delivery</h3><p class="text-sm text-gray-400">Receive your complete project kit at your doorstep.</p></div>
-                            <div class="animate-on-scroll" style="transition-delay: 400ms;"><div class="mx-auto mb-4 bg-purple-600/20 text-purple-400 border-2 border-purple-500 rounded-full h-20 w-20 flex items-center justify-center relative"><span class="text-2xl font-bold">4</span></div><h3 class="text-lg font-bold text-white mb-2">After-Sales Support</h3><p class="text-sm text-gray-400">We help you until your final submission is complete.</p></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <!-- Animated Stats Section -->
-            <section id="stats" class="py-20">
-                 <div class="container mx-auto px-6 animate-on-scroll">
-                    <div class="bg-gradient-to-r from-slate-900 to-gray-900/50 rounded-xl p-8 md:p-12 border border-slate-800">
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                            <div>
-                                <h3 class="text-5xl font-black gradient-text" data-stat-target="200">0+</h3>
-                                <p class="text-gray-400 mt-2">Projects Delivered</p>
-                            </div>
-                            <div>
-                                <h3 class="text-5xl font-black gradient-text" data-stat-target="150">0+</h3>
-                                <p class="text-gray-400 mt-2">Happy Students</p>
-                            </div>
-                             <div>
-                                <h3 class="text-5xl font-black gradient-text" data-stat-target="98">0%</h3>
-                                <p class="text-gray-400 mt-2">Satisfaction Rate</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Feedback Carousel Section -->
-            <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">What Our <span class="gradient-text">Clients Say</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">Real feedback from students who trusted ProjectBuddy for their success.</p>
-                    </div>
-                    <div id="testimonial-carousel" class="relative max-w-3xl mx-auto animate-on-scroll">
-                        <div class="overflow-hidden">
-                            <div class="testimonial-slide"><div class="bg-slate-900 p-8 rounded-xl border border-slate-800 text-center"><p class="text-gray-400 mb-6 italic">"The comprehensive package was a lifesaver! I got a high-quality project, a detailed report, and an amazing PPT. The after-sales support was fantastic and helped me clear all my doubts before the final presentation."</p><div class="flex items-center justify-center"><div class="flex-shrink-0"><span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-purple-600"><span class="text-lg font-medium text-white">AR</span></span></div><div class="ml-4 text-left"><div class="text-lg font-semibold text-white">Aniket R.</div><div class="text-sm text-gray-500">Computer Science Student</div></div></div></div></div>
-                            <div class="testimonial-slide hidden"><div class="bg-slate-900 p-8 rounded-xl border border-slate-800 text-center"><p class="text-gray-400 mb-6 italic">"Renting the sensor kit was so affordable and convenient. I didn't have to buy expensive components for a one-time project. ProjectBuddy is a must for any engineering student on a budget!"</p><div class="flex items-center justify-center"><div class="flex-shrink-0"><span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-pink-600"><span class="text-lg font-medium text-white">PS</span></span></div><div class="ml-4 text-left"><div class="text-lg font-semibold text-white">Priya S.</div><div class="text-sm text-gray-500">Electronics Engineering</div></div></div></div></div>
-                            <div class="testimonial-slide hidden"><div class="bg-slate-900 p-8 rounded-xl border border-slate-800 text-center"><p class="text-gray-400 mb-6 italic">"I had a unique project idea, and the team built it exactly as I envisioned. The custom project service is top-notch. Highly recommended for their professionalism and technical skills."</p><div class="flex items-center justify-center"><div class="flex-shrink-0"><span class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-teal-600"><span class="text-lg font-medium text-white">VK</span></span></div><div class="ml-4 text-left"><div class="text-lg font-semibold text-white">Vikram K.</div><div class="text-sm text-gray-500">Mechanical Engineering</div></div></div></div></div>
-                        </div>
-                        <button id="prev-testimonial" class="absolute top-1/2 left-0 md:-left-16 transform -translate-y-1/2 bg-slate-800/50 hover:bg-slate-700/80 rounded-full p-3 text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg></button>
-                        <button id="next-testimonial" class="absolute top-1/2 right-0 md:-right-16 transform -translate-y-1/2 bg-slate-800/50 hover:bg-slate-700/80 rounded-full p-3 text-white transition-colors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg></button>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Homepage Contact Section -->
-            <section class="gradient-bg-section">
-                <div class="container mx-auto px-6 py-20 text-center animate-on-scroll">
-                    <h2 class="text-4xl md:text-5xl font-black text-white mb-4 hero-title-shadow">Ready to Start Your Next Project?</h2>
-                    <p class="text-violet-200 max-w-2xl mx-auto mb-8">Don't let project deadlines stress you out. Reach out to us today and let's build something amazing together!</p>
-                    <div class="flex justify-center items-center flex-wrap gap-4">
-                        <a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="bg-white text-violet-700 font-bold px-8 py-4 rounded-lg text-lg transform hover:scale-105 transition-transform duration-300 glow-effect">Fill Out Booking Form</a>
-                        <a href="https://www.instagram.com/project_buddyy_11" target="_blank" class="bg-pink-600 text-white font-bold px-8 py-4 rounded-lg text-lg transform hover:scale-105 transition-transform duration-300 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Message on Instagram</a>
-                        <a href="https://wa.me/919373286008" target="_blank" class="bg-green-500 text-white font-bold px-8 py-4 rounded-lg text-lg transform hover:scale-105 transition-transform duration-300 flex items-center gap-2">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                           Chat on WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-        
-        <!-- Gallery Page Section -->
-        <div id="gallery" class="page-section hidden">
-            <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">Our Project <span class="gradient-text">Showcase</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">A glimpse into the quality and variety of projects we've delivered.</p>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group animate-on-scroll" style="transition-delay: 100ms;"><img src="https://placehold.co/600x400/1e293b/a78bfa?text=Obstacle+Robot" alt="Obstacle Avoiding Robot" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-xl font-bold text-white">Obstacle Avoiding Robot</h3><p class="text-gray-400 mt-2 text-sm">An autonomous robot that navigates its environment using ultrasonic sensors.</p></div></div>
-                        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group animate-on-scroll" style="transition-delay: 200ms;"><img src="https://placehold.co/600x400/1e293b/a78bfa?text=IoT+Weather+Station" alt="IoT Weather Station" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-xl font-bold text-white">IoT Weather Station</h3><p class="text-gray-400 mt-2 text-sm">Monitors real-time weather data and uploads it to the cloud for remote access.</p></div></div>
-                        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group animate-on-scroll" style="transition-delay: 300ms;"><img src="https://placehold.co/600x400/1e293b/a78bfa?text=Smart+Home" alt="Smart Home Automation" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-xl font-bold text-white">Smart Home Automation</h3><p class="text-gray-400 mt-2 text-sm">Control lights, fans, and other appliances using a custom smartphone app.</p></div></div>
-                        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group animate-on-scroll" style="transition-delay: 100ms;"><img src="https://placehold.co/600x400/1e293b/f472b6?text=Chat+App" alt="Real-time Chat Application" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-xl font-bold text-white">Real-time Chat App</h3><p class="text-gray-400 mt-2 text-sm">A web application allowing multiple users to chat instantly and securely.</p></div></div>
-                        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group animate-on-scroll" style="transition-delay: 200ms;"><img src="https://placehold.co/600x400/1e293b/f472b6?text=E-commerce+Site" alt="E-commerce Website" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-xl font-bold text-white">E-commerce Website</h3><p class="text-gray-400 mt-2 text-sm">A fully functional online store with product management and payment integration.</p></div></div>
-                        <div class="bg-slate-900 rounded-xl border border-slate-800 overflow-hidden group animate-on-scroll" style="transition-delay: 300ms;"><img src="https://placehold.co/600x400/1e293b/a78bfa?text=Parking+Sensor" alt="Parking Sensor" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"><div class="p-6"><h3 class="text-xl font-bold text-white">Ultrasonic Parking Sensor</h3><p class="text-gray-400 mt-2 text-sm">A device that alerts drivers with a buzzer when they get too close to an object.</p></div></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Project Ideas Page Section -->
-        <div id="project-ideas" class="page-section hidden">
-            <section class="py-20 bg-slate-900/70">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-16 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">Explore <span class="gradient-text">Project Ideas</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">Get inspired by some of the popular projects we've built for students across different branches.</p>
-                    </div>
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                        <div class="animate-on-scroll" style="transition-delay: 100ms;">
-                            <h3 class="text-2xl font-bold text-white mb-6 text-center lg:text-left">Hardware & IoT Projects</h3>
-                            <div class="space-y-4"><div class="bg-slate-900 p-4 rounded-lg flex items-center gap-4 border border-slate-800"><span class="text-violet-400 text-2xl">🤖</span><div><h4 class="font-semibold text-white">Obstacle Avoiding Robot</h4><p class="text-sm text-gray-500">An autonomous robot that uses ultrasonic sensors to navigate without collisions.</p></div></div><div class="bg-slate-900 p-4 rounded-lg flex items-center gap-4 border border-slate-800"><span class="text-violet-400 text-2xl">🌦️</span><div><h4 class="font-semibold text-white">IoT Weather Station</h4><p class="text-sm text-gray-500">Monitors temperature, humidity, and pressure, sending data to the cloud.</p></div></div><div class="bg-slate-900 p-4 rounded-lg flex items-center gap-4 border border-slate-800"><span class="text-violet-400 text-2xl">🏠</span><div><h4 class="font-semibold text-white">Smart Home Automation</h4><p class="text-sm text-gray-500">Control lights and appliances using a smartphone app or voice commands.</p></div></div></div>
-                        </div>
-                        <div class="animate-on-scroll" style="transition-delay: 200ms;">
-                            <h3 class="text-2xl font-bold text-white mb-6 text-center lg:text-left">Software & Web Projects</h3>
-                            <div class="space-y-4"><div class="bg-slate-900 p-4 rounded-lg flex items-center gap-4 border border-slate-800"><span class="text-pink-400 text-2xl">📚</span><div><h4 class="font-semibold text-white">Library Management System</h4><p class="text-sm text-gray-500">A desktop or web application to manage books, borrowing, and student records.</p></div></div><div class="bg-slate-900 p-4 rounded-lg flex items-center gap-4 border border-slate-800"><span class="text-pink-400 text-2xl">🛒</span><div><h4 class="font-semibold text-white">E-commerce Website</h4><p class="text-sm text-gray-500">A full-featured online store with product listings, cart, and payment gateway.</p></div></div><div class="bg-slate-900 p-4 rounded-lg flex items-center gap-4 border border-slate-800"><span class="text-pink-400 text-2xl">💬</span><div><h4 class="font-semibold text-white">Real-time Chat Application</h4><p class="text-sm text-gray-500">A web-based chat platform for users to communicate instantly.</p></div></div></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="project-suggester" class="py-20">
-                <div class="container mx-auto px-6 animate-on-scroll">
-                    <div class="bg-gradient-to-r from-slate-900 to-gray-900/50 rounded-xl p-8 md:p-12 text-center border border-slate-800">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">Find Your <span class="gradient-text">Perfect Project</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4 mb-8">Tell us about yourself, and we'll suggest some project ideas tailored just for you!</p>
-                        <div id="suggester-form" class="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                            <select id="student-branch" class="bg-slate-800 border border-slate-700 text-white text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"><option selected value="any">Any Branch</option><option value="cse">Computer Science / IT</option><option value="ece">Electronics & Comm.</option><option value="mech">Mechanical</option></select>
-                            <select id="student-year" class="bg-slate-800 border border-slate-700 text-white text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"><option selected value="any">Any Year</option><option value="2nd">2nd Year</option><option value="3rd">3rd Year</option><option value="final">Final Year</option></select>
-                            <select id="student-interest" class="bg-slate-800 border border-slate-700 text-white text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full p-2.5"><option selected value="any">Any Interest</option><option value="iot">IoT &amp; Hardware</option><option value="web">Web Development</option><option value="ml">AI / Machine Learning</option><option value="robotics">Robotics</option></select>
-                            <button id="get-suggestions-btn" class="w-full bg-purple-600 text-white font-semibold py-2.5 rounded-lg hover:bg-purple-700 transition-colors duration-300">Get Suggestions</button>
-                        </div>
-                        <div id="suggestions-result" class="mt-8 text-left max-w-4xl mx-auto"></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- Pricing Page Section -->
-        <div id="pricing" class="page-section hidden">
-            <section class="py-20">
-                <div class="container mx-auto px-6">
-                    <div class="text-center mb-12 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">Flexible <span class="gradient-text">Pricing for Every Need</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">Choose the perfect package that fits your requirements and budget. No hidden fees.</p>
-                    </div>
-
-                    <!-- Pricing Tabs -->
-                    <div class="flex justify-center mb-10 animate-on-scroll">
-                        <div class="bg-slate-800 rounded-lg p-1 flex space-x-1">
-                            <button data-tab="software" class="pricing-tab px-6 py-2 text-sm font-semibold rounded-md transition-colors duration-300">Software Projects</button>
-                            <button data-tab="hardware" class="pricing-tab px-6 py-2 text-sm font-semibold rounded-md transition-colors duration-300">Hardware Projects</button>
-                        </div>
-                    </div>
-
-                    <!-- Software Pricing Content -->
-                    <div id="software-pricing" class="pricing-content">
-                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-5xl mx-auto items-center">
-                             <div class="bg-slate-900 rounded-xl p-8 flex flex-col border border-slate-800 h-full animate-on-scroll" style="transition-delay: 100ms;"><h3 class="text-xl font-bold text-white">Customized Project</h3><p class="text-gray-400 mt-1">Ideal for core project needs.</p><div class="my-6"><span class="text-4xl font-extrabold text-white">₹600</span></div><ul class="space-y-3 text-gray-400 flex-grow"><li class="flex items-center"><span class="text-green-400 mr-3">✅</span>Customized Project</li><li class="flex items-center"><span class="text-green-400 mr-3">✅</span>After-Sales Support</li></ul><a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="mt-8 w-full text-center bg-slate-700 text-white font-semibold py-3 rounded-lg hover:bg-slate-600 transition-colors duration-300">Choose Plan</a></div>
-                            <div class="bg-gradient-to-br from-violet-800 to-purple-700 rounded-xl p-8 flex flex-col border-2 border-purple-500 relative transform lg:scale-110 shadow-2xl shadow-purple-500/30 h-full animate-on-scroll" style="transition-delay: 200ms;"><div class="absolute top-0 right-8 -mt-4 bg-yellow-400 text-gray-900 font-bold text-sm px-3 py-1 rounded-full uppercase">Best Value</div><h3 class="text-2xl font-bold text-white">Comprehensive Package</h3><p class="text-purple-200 mt-1">The all-in-one solution for success.</p><div class="my-6"><span class="text-5xl font-extrabold text-white">₹1000</span></div><ul class="space-y-3 text-purple-100 flex-grow"><li class="flex items-center"><span class="text-green-300 mr-3">✅</span>Customized Project</li><li class="flex items-center"><span class="text-green-300 mr-3">✅</span>Detailed Project Report</li><li class="flex items-center"><span class="text-green-300 mr-3">✅</span>Research Paper & Publication Support</li><li class="flex items-center"><span class="text-green-300 mr-3">✅</span>PowerPoint Presentation (PPT)</li><li class="flex items-center"><span class="text-green-300 mr-3">✅</span>Code Backup File</li><li class="flex items-center"><span class="text-green-300 mr-3">✅</span>After-Sales Support</li></ul><a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="mt-8 w-full text-center bg-white text-violet-700 font-bold py-3 rounded-lg hover:bg-gray-200 transition-colors duration-300 glow-effect animated-glow">Choose Plan</a></div>
-                            <div class="bg-slate-900 rounded-xl p-8 flex flex-col border border-slate-800 h-full animate-on-scroll" style="transition-delay: 300ms;"><h3 class="text-xl font-bold text-white">Project + Research Paper</h3><p class="text-gray-400 mt-1">Great for academic requirements.</p><div class="my-6"><span class="text-4xl font-extrabold text-white">₹750</span></div><ul class="space-y-3 text-gray-400 flex-grow"><li class="flex items-center"><span class="text-green-400 mr-3">✅</span>Customized Project</li><li class="flex items-center"><span class="text-green-400 mr-3">✅</span>Research Paper & Publication Support</li><li class="flex items-center"><span class="text-green-400 mr-3">✅</span>After-Sales Support</li></ul><a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="mt-8 w-full text-center bg-slate-700 text-white font-semibold py-3 rounded-lg hover:bg-slate-600 transition-colors duration-300">Choose Plan</a></div>
-                        </div>
-                    </div>
-
-                    <!-- Hardware Pricing Content -->
-                    <div id="hardware-pricing" class="pricing-content hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                            <!-- Ready-Made Projects Card -->
-                            <div class="bg-slate-900 rounded-xl p-8 border border-slate-800 flex flex-col">
-                                <h3 class="text-2xl font-bold text-white mb-4">Ready-Made Mini Projects</h3>
-                                <ul class="space-y-3 text-gray-400 flex-grow">
-                                    <li class="flex justify-between items-center"><span>Basic (LED, Sensor based)</span> <span class="font-semibold text-white text-right">₹300 – ₹600</span></li>
-                                    <li class="flex justify-between items-center"><span>Intermediate (Arduino + small modules)</span> <span class="font-semibold text-white text-right">₹700 – ₹1,200</span></li>
-                                    <li class="flex justify-between items-center"><span>Advanced (IoT, Robotics, Wireless)</span> <span class="font-semibold text-white text-right">₹1,500 – ₹2,500</span></li>
-                                </ul>
-                                <a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="mt-8 w-full text-center bg-slate-700 text-white font-semibold py-3 rounded-lg hover:bg-slate-600 transition-colors duration-300">Get a Quote</a>
-                            </div>
-                            <!-- Customized Projects Card -->
-                            <div class="bg-slate-900 rounded-xl p-8 border border-slate-800 flex flex-col">
-                                <h3 class="text-2xl font-bold text-white mb-4">Customized Projects</h3>
-                                <ul class="space-y-3 text-gray-400 flex-grow">
-                                    <li class="flex justify-between items-center"><span>Mini Project (with code + report)</span> <span class="font-semibold text-white text-right">₹1,200 – ₹2,000</span></li>
-                                    <li class="flex justify-between items-center"><span>Major Project (full support)</span> <span class="font-semibold text-white text-right">₹3,000 – ₹5,000</span></li>
-                                </ul>
-                                <a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="mt-8 w-full text-center bg-slate-700 text-white font-semibold py-3 rounded-lg hover:bg-slate-600 transition-colors duration-300">Request a Quote</a>
-                            </div>
-                            <!-- Rental Plans Card -->
-                            <div class="bg-slate-900 rounded-xl p-8 border border-slate-800 flex flex-col">
-                                <h3 class="text-2xl font-bold text-white mb-4">Rental Plans (Monthly)</h3>
-                                <ul class="space-y-3 text-gray-400 flex-grow">
-                                    <li class="flex justify-between items-center"><span>Rent Complete Project</span> <span class="font-semibold text-white text-right">₹500 – ₹1,200</span></li>
-                                    <li class="flex justify-between items-center"><span>Rent Components (each)</span> <span class="font-semibold text-white text-right">₹100 – ₹300</span></li>
-                                </ul>
-                                <a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="mt-8 w-full text-center bg-slate-700 text-white font-semibold py-3 rounded-lg hover:bg-slate-600 transition-colors duration-300">Choose Plan</a>
-                            </div>
-                            <!-- Add-on Package Card -->
-                            <div class="bg-gradient-to-br from-violet-800 to-purple-700 rounded-xl p-8 border-2 border-purple-500 flex flex-col">
-                                <h3 class="text-2xl font-bold text-white">Add-on Package 🎁</h3>
-                                <p class="text-purple-200 mt-1">Get everything you need in one bundle.</p>
-                                <div class="my-4"><span class="text-4xl font-extrabold text-white">₹350</span><span class="text-purple-200"> Only</span></div>
-                                <ul class="space-y-2 text-purple-100 text-sm flex-grow">
-                                    <li class="flex items-center"><span class="text-green-300 mr-2">✔</span>PPT & Project Report</li>
-                                    <li class="flex items-center"><span class="text-green-300 mr-2">✔</span>Code Backup & After-Sales Support</li>
-                                    <li class="flex items-center"><span class="text-green-300 mr-2">✔</span>Research Paper Draft</li>
-                                </ul>
-                                <p class="text-xs text-purple-300 mt-3">(Publication charges are extra and paid by the student)</p>
-                                <a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="mt-8 w-full text-center bg-white text-purple-700 font-bold py-3 rounded-lg hover:bg-gray-200 transition-colors duration-300">Add to Project</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        
-        <!-- FAQ Page Section -->
-        <div id="faq" class="page-section hidden">
-            <section class="py-20">
-                <div class="container mx-auto px-6">
-                     <div class="text-center mb-16 animate-on-scroll">
-                        <h2 class="text-4xl md:text-5xl font-black text-white">Frequently Asked <span class="gradient-text">Questions</span></h2>
-                        <p class="text-gray-400 max-w-2xl mx-auto mt-4">Have questions? We've got answers. If you can't find what you're looking for, feel free to contact us.</p>
-                    </div>
-                    <div id="faq-accordion" class="max-w-3xl mx-auto space-y-4 animate-on-scroll">
-                        <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg"><button class="faq-question w-full flex justify-between items-center text-left p-6 hover:bg-slate-800/50"><span class="text-lg font-semibold text-white">How does the rental process work?</span><svg class="faq-arrow h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></button><div class="faq-answer px-6 text-gray-400"><p>It's simple! First, fill out our booking form. We'll confirm your order and rental period. After you make the payment (including a refundable security deposit), you can pick up the kit or have it delivered. Return it on time in good condition, and we'll refund your deposit.</p></div></div>
-                        <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg"><button class="faq-question w-full flex justify-between items-center text-left p-6 hover:bg-slate-800/50"><span class="text-lg font-semibold text-white">What happens if I damage a rented component?</span><svg class="faq-arrow h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></button><div class="faq-answer px-6 text-gray-400"><p>You will be liable for the repair or replacement cost of any damaged or lost items. This cost may be deducted from your security deposit. We recommend handling all components with care.</p></div></div>
-                        <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg"><button class="faq-question w-full flex justify-between items-center text-left p-6 hover:bg-slate-800/50"><span class="text-lg font-semibold text-white">Do you provide project support outside of Nagpur?</span><svg class="faq-arrow h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></button><div class="faq-answer px-6 text-gray-400"><p>Currently, our rental services with physical components are primarily focused on Nagpur for easy pickup and delivery. However, we provide complete support for software projects, custom project design, and documentation (reports, papers, PPTs) to students all across India. Contact us to discuss your specific needs!</p></div></div>
-                        <div class="faq-item bg-slate-900 border border-slate-800 rounded-lg"><button class="faq-question w-full flex justify-between items-center text-left p-6 hover:bg-slate-800/50"><span class="text-lg font-semibold text-white">What kind of after-sales support is included?</span><svg class="faq-arrow h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg></button><div class="faq-answer px-6 text-gray-400"><p>Our after-sales support includes help with understanding the project's code, circuit diagram, and overall functionality. We also provide tips for your final presentation or viva to ensure you can explain your project confidently. We're here to help you clear any doubts you might have.</p></div></div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-
-        <!-- Contact Page Section -->
-        <div id="contact" class="page-section hidden">
-            <section class="gradient-bg-section">
-                <div class="container mx-auto px-6 py-20 text-center animate-on-scroll">
-                    <h2 class="text-4xl md:text-5xl font-black text-white mb-4 hero-title-shadow">Ready to Start Your Next Project?</h2>
-                    <p class="text-violet-200 max-w-2xl mx-auto mb-8">Don't let project deadlines stress you out. Reach out to us today and let's build something amazing together!</p>
-                    <div class="flex justify-center items-center flex-wrap gap-4">
-                        <a href="https://forms.gle/u3VxhUY4fofGzPiV8" target="_blank" class="bg-white text-violet-700 font-bold px-8 py-4 rounded-lg text-lg transform hover:scale-105 transition-transform duration-300 glow-effect">Fill Out Booking Form</a>
-                        <a href="https://www.instagram.com/project_buddyy_11" target="_blank" class="bg-pink-600 text-white font-bold px-8 py-4 rounded-lg text-lg transform hover:scale-105 transition-transform duration-300 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Message on Instagram</a>
-                        <a href="https://wa.me/919373286008" target="_blank" class="bg-green-500 text-white font-bold px-8 py-4 rounded-lg text-lg transform hover:scale-105 transition-transform duration-300 flex items-center gap-2">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                           Chat on WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-slate-950 border-t border-slate-800">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
-            <div class="mb-4"><a href="#" id="open-modal-link" class="hover:text-gray-300 underline cursor-pointer">Rental Terms & Conditions</a></div>
-            <p>&copy; 2025 ProjectBuddy. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Rental T&C Modal -->
-    <div id="rentalModal" class="fixed inset-0 bg-black bg-opacity-70 hidden flex items-center justify-center z-50 p-4">
-        <div class="bg-slate-900 text-gray-300 rounded-xl shadow-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto relative border border-slate-700">
-            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white text-3xl">&times;</button>
-            <div class="p-8"><h2 class="text-2xl font-bold text-white mb-6">Rental Terms & Conditions</h2><div class="space-y-4 text-gray-400"><p>We offer project kits and electronic components on rent to make learning more affordable and accessible for students. Below are the terms and conditions for renting from ProjectBuddy:</p><div><h3 class="font-bold text-lg text-purple-400">1️⃣ Rental Period</h3><ul class="list-disc list-inside pl-4 mt-1"><li><strong>Minimum Period:</strong> Based on your submission or exhibition date.</li><li><strong>Extension:</strong> Possible upon request, with additional charges for extra days.</li></ul></div><div><h3 class="font-bold text-lg text-purple-400">2️⃣ Rental Charges & Security Deposit</h3><ul class="list-disc list-inside pl-4 mt-1"><li><strong>Mini Project (Rent):</strong> Based on project complexity.</li><li><strong>Arduino UNO (Rent):</strong> ₹99/week</li><li><strong>Sensor Kit (Rent):</strong> ₹49/week</li><li><strong>Security Deposit:</strong> A refundable deposit (e.g., ₹500 for an Arduino kit) is required for all rentals. It is fully refunded upon the safe and timely return of the kit in good condition.</li></ul></div><div><h3 class="font-bold text-lg text-purple-400">3️⃣ Delivery and Pickup</h3><ul class="list-disc list-inside pl-4 mt-1"><li><strong>Delivery:</strong> Available for an additional cost.</li><li><strong>Self-Pickup:</strong> You can pick up the kit from our location in Nagpur.</li><li><strong>Delivery Time:</strong> Generally 3-4 days after confirmation, based on availability and location.</li></ul></div><div><h3 class="font-bold text-lg text-purple-400">4️⃣ Damage/Return Policy</h3><ul class="list-disc list-inside pl-4 mt-1"><li><strong>Return Condition:</strong> Kits must be returned in good working condition with all parts intact.</li><li><strong>Damaged or Lost Items:</strong> The renter will be liable for repair or replacement charges, which may be deducted from the security deposit.</li></ul></div><div><h3 class="font-bold text-lg text-purple-400">5️⃣ Late Return</h3><ul class="list-disc list-inside pl-4 mt-1"><li>A late fee of ₹50/day will be applied if the kit is not returned by the agreed-upon date.</li></ul></div><p class="pt-4 text-sm text-gray-500"><strong>Note:</strong> Delivery and rental charges are non-refundable once the rental period begins. For more details or to book your kit, DM us on Instagram <a href="https://www.instagram.com/project_buddyy_11" target="_blank" class="text-pink-500 underline">@project_buddyy_11</a>.</p></div></div>
-        </div>
-    </div>
-    
-    <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/919921178064" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-transform hover:scale-110 duration-300 z-50">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-    </a>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Modal Logic
-            const modal = document.getElementById("rentalModal");
-            const openBtn = document.getElementById("open-modal-link");
-            const closeBtn = document.getElementById("close-modal-btn");
-            if(modal && openBtn && closeBtn) {
-                const openModal = () => modal.classList.remove("hidden");
-                const closeModal = () => modal.classList.add("hidden");
-                openBtn.addEventListener("click", e => { e.preventDefault(); openModal(); });
-                closeBtn.addEventListener("click", closeModal);
-                modal.addEventListener("click", e => { if (e.target === modal) { closeModal(); } });
-            }
-
-            // Mobile Menu Logic
-            const mobileMenuButton = document.getElementById("mobile-menu-button");
-            const mobileMenu = document.getElementById("mobile-menu");
-            if(mobileMenuButton && mobileMenu){
-                mobileMenuButton.addEventListener("click", () => {
-                    mobileMenu.classList.toggle("hidden");
-                    const svg = mobileMenuButton.querySelector("svg");
-                    if (mobileMenu.classList.contains("hidden")) {
-                        svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />`;
-                    } else {
-                        svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />`;
-                    }
-                });
-            }
-            
-            // Page Navigation Logic
-            const pageSections = document.querySelectorAll('.page-section');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            const showPage = (pageId) => {
-                pageSections.forEach(section => {
-                    section.classList.toggle('hidden', section.id !== pageId);
-                });
-                
-                document.querySelectorAll('.nav-link').forEach(link => {
-                    link.classList.remove('active');
-                    if(link.dataset.page === pageId) {
-                       link.classList.add('active');
-                    }
-                });
-
-                window.scrollTo(0, 0); 
-                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                    const svg = mobileMenuButton.querySelector("svg");
-                    svg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />`;
-                }
-            };
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const pageId = link.dataset.page;
-                    if (pageId) {
-                       showPage(pageId);
-                    }
-                });
-            });
-            
-            showPage('home'); // Show home page by default
-            document.querySelector('.nav-link[data-page="home"]').classList.add('active');
-
-            // Pricing Tab Logic
-            const pricingTabs = document.querySelectorAll('.pricing-tab');
-            const pricingContents = document.querySelectorAll('.pricing-content');
-
-            pricingTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const tabId = tab.dataset.tab;
-
-                    pricingTabs.forEach(t => t.classList.remove('active'));
-                    tab.classList.add('active');
-
-                    pricingContents.forEach(content => {
-                        content.classList.toggle('hidden', content.id !== `${tabId}-pricing`);
-                    });
-                });
-            });
-            // Set default active pricing tab
-            const defaultPricingTab = document.querySelector('.pricing-tab[data-tab="software"]');
-            if (defaultPricingTab) defaultPricingTab.click();
-
-            // Project Suggester Logic
-            const projects = [
-                { title: "IoT-based Smart Agriculture System", branch: "ece", year: ["3rd", "final"], interest: "iot", desc: "Monitor soil moisture, temperature, and control irrigation remotely." },
-                { title: "Obstacle Avoiding Robot", branch: "any", year: ["2nd", "3rd"], interest: "robotics", desc: "A classic robotics project using ultrasonic sensors and Arduino." },
-                { title: "E-commerce Website", branch: "cse", year: ["3rd", "final"], interest: "web", desc: "Build a fully functional online store with a product catalog and cart." },
-                { title: "Sentiment Analysis of Social Media", branch: "cse", year: ["final"], interest: "ml", desc: "Analyze tweets or reviews to determine public sentiment using Python." },
-                { title: "Home Automation using Bluetooth", branch: "ece", year: ["2nd", "3rd"], interest: "iot", desc: "Control home appliances like lights and fans with a smartphone app." },
-                { title: "Automated Braking System", branch: "mech", year: ["3rd", "final"], interest: "robotics", desc: "Design a model that automatically applies brakes to avoid collisions." },
-                { title: "Personal Portfolio Website", branch: "any", year: ["2nd"], interest: "web", desc: "A great starting point to learn web development and showcase your skills." },
-                { title: "Handwritten Digit Recognition", branch: "cse", year: ["3rd", "final"], interest: "ml", desc: "Create a machine learning model to recognize handwritten digits." },
-                { title: "Ultrasonic Parking Sensor", branch: "ece", year: ["2nd", "3rd"], interest: "iot", desc: "Alerts drivers when they are close to an obstacle while parking." },
-                { title: "Simple Radar System", branch: "ece", year: ["3rd", "final"], interest: "iot", desc: "Uses ultrasonic sensors to detect and display objects on a small screen." },
-                { title: "Rainwater Detector Alarm", branch: "ece", year: ["2nd"], interest: "iot", desc: "An alarm that triggers when it detects rainwater, useful for homes." },
-                { title: "Hydrogen Fuel Cell Car Model", branch: "mech", year: ["final"], interest: "robotics", desc: "A working model of a car powered by a hydrogen fuel cell." },
-                { title: "Fire Alarm System", branch: "ece", year: ["2nd", "3rd"], interest: "iot", desc: "Detects fire using a flame sensor and triggers a buzzer and LED." },
-                { title: "Smoke Detector", branch: "ece", year: ["2nd", "3rd"], interest: "iot", desc: "Uses a gas sensor (like MQ-2) to detect smoke and sound an alarm." },
-                { title: "Automatic Plant Irrigation System", branch: "any", year: ["2nd", "3rd"], interest: "iot", desc: "Waters plants automatically when the soil moisture level is low." },
-                { title: "Water ATM using RFID", branch: "ece", year: ["3rd", "final"], interest: "iot", desc: "A system to dispense a specific quantity of water using RFID cards." }
-            ];
-            const getSuggestionsBtn = document.getElementById("get-suggestions-btn");
-            const suggestionsResultDiv = document.getElementById("suggestions-result");
-            if(getSuggestionsBtn){
-                getSuggestionsBtn.addEventListener("click", () => {
-                    const branch = document.getElementById("student-branch").value;
-                    const year = document.getElementById("student-year").value;
-                    const interest = document.getElementById("student-interest").value;
-                    const filteredProjects = projects.filter(p => {
-                        const branchMatch = branch === "any" || p.branch === branch || p.branch === "any";
-                        const yearMatch = year === "any" || p.year.includes(year);
-                        const interestMatch = interest === "any" || p.interest === interest;
-                        return branchMatch && yearMatch && interestMatch;
-                    });
-
-                    suggestionsResultDiv.innerHTML = "";
-                    if (filteredProjects.length > 0) {
-                        let html = '<h3 class="text-xl font-bold text-white mb-4">Here are some suggestions for you:</h3><div class="space-y-3">';
-                        filteredProjects.forEach(p => {
-                            html += `
-                                <div class="bg-slate-800/50 p-4 rounded-lg">
-                                    <h4 class="font-semibold text-white">${p.title}</h4>
-                                    <p class="text-sm text-gray-400">${p.desc}</p>
-                                </div>
-                            `;
-                        });
-                        html += "</div>";
-                        suggestionsResultDiv.innerHTML = html;
-                    } else {
-                        suggestionsResultDiv.innerHTML = `
-                            <div class="bg-yellow-400/20 border border-yellow-500 text-yellow-300 p-4 rounded-lg">
-                                <p>No specific projects match your criteria, but we can build a custom one for you! Contact us to discuss your idea.</p>
-                            </div>
-                        `;
-                    }
-                });
-            }
-
-            // FAQ Accordion Logic
-            const faqAccordion = document.getElementById('faq-accordion');
-            if (faqAccordion) {
-                faqAccordion.addEventListener('click', (e) => {
-                    const questionButton = e.target.closest('.faq-question');
-                    if (questionButton) {
-                        const faqItem = questionButton.parentElement;
-                        const wasActive = faqItem.classList.contains('active');
-                        
-                        faqAccordion.querySelectorAll('.faq-item').forEach(item => item.classList.remove('active'));
-                        
-                        if (!wasActive) {
-                            faqItem.classList.add('active');
-                        }
-                    }
-                });
-            }
-
-            // Animated Stats Logic
-            const statsSection = document.getElementById('stats');
-            const statsElements = document.querySelectorAll('[data-stat-target]');
-            const animateStats = (entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        statsElements.forEach(stat => {
-                            const target = parseInt(stat.dataset.statTarget);
-                            const suffix = stat.innerText.replace(/\d+/g, '');
-                            let current = 0;
-                            const increment = target / 100;
-
-                            const timer = setInterval(() => {
-                                current += increment;
-                                if (current >= target) {
-                                    clearInterval(timer);
-                                    stat.innerText = target + suffix;
-                                } else {
-                                    stat.innerText = Math.ceil(current) + suffix;
-                                }
-                            }, 20);
-                        });
-                        observer.unobserve(statsSection);
-                    }
-                });
-            };
-            const statsObserver = new IntersectionObserver(animateStats, { threshold: 0.5 });
-            if (statsSection) {
-                statsObserver.observe(statsSection);
-            }
-
-            // Testimonial Carousel Logic
-            const carousel = document.getElementById('testimonial-carousel');
-            if (carousel) {
-                const slides = carousel.querySelectorAll('.testimonial-slide');
-                const prevBtn = document.getElementById('prev-testimonial');
-                const nextBtn = document.getElementById('next-testimonial');
-                let currentIndex = 0;
-                let autoPlayInterval;
-
-                const showSlide = (index) => {
-                    slides.forEach((slide, i) => {
-                        slide.classList.toggle('hidden', i !== index);
-                    });
-                };
-
-                const nextSlide = () => {
-                    currentIndex = (currentIndex + 1) % slides.length;
-                    showSlide(currentIndex);
-                };
-                
-                const prevSlide = () => {
-                    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                    showSlide(currentIndex);
-                };
-
-                const startAutoPlay = () => {
-                    stopAutoPlay();
-                    autoPlayInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds
-                };
-
-                const stopAutoPlay = () => {
-                    clearInterval(autoPlayInterval);
-                };
-
-                if (nextBtn && prevBtn) {
-                    nextBtn.addEventListener('click', () => {
-                        nextSlide();
-                        startAutoPlay(); // Restart autoplay on manual navigation
-                    });
-                    prevBtn.addEventListener('click', () => {
-                        prevSlide();
-                        startAutoPlay(); // Restart autoplay
-                    });
-                }
-                
-                showSlide(currentIndex);
-                startAutoPlay();
-            }
-
-            // Scroll Animation Observer
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        scrollObserver.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-            elementsToAnimate.forEach(el => scrollObserver.observe(el));
-        });
-    </script>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
-
-
-
-
-
